@@ -1,0 +1,950 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+header{
+    background-color: black;
+}
+
+/* Minha anotação aqui */
+
+.topo{
+    display: flex;   /* Coloca os itens lado a lado */ 
+    align-items: center; /* Alinha os itens no centro */
+    gap: 20px;  /* Espaço entre os itens */
+    padding: 15px 40px;  /* Espaço interno: cima/baixo e laterais */
+
+}
+
+.topo img{
+    width: 150px;  /* Tamanho da Imagem */
+}
+
+.barra-pesquisa{
+    position: relative; /* Referência para posicionar elementos internos */
+    flex: 1; /* Ocupa/divide o espaço disponível */
+    height: 76px;  /* Define a altura do elemento */
+}   
+
+.barra-pesquisa input{
+    width: 100%;  /* Ocupa toda a largura disponível */
+    height: 100%;  /* Ocupa toda a altura disponível */
+    padding: 0 170px 0 35px;  /* Espaço interno: cima, direita, baixo, esquerda */
+    border: none;  /* Remove a borda */
+    border-radius: 40px;  /* Arredonda os cantos */
+    font-size: 18px;  /* Tamanho da letra */
+    outline: none;  /* Remove o contorno ao clicar */
+}
+
+.barra-pesquisa button{
+    position: absolute;  /* Posiciona livremente dentro do elemento pai */
+    right: 0; /* Encosta no lado direito */
+    top: 0; /* Encosta no topo */
+    width: 140px;
+    height: 100%;
+    border: none;
+    border-radius: 40px;
+    background-color: #ff1010;
+    color: #ffad1f;
+    cursor: pointer;  /* Mostra a mãozinha ao passar o mouse */
+
+}
+
+.barra-pesquisa button i {
+    font-size: 28px;
+}
+
+.acoes button i {
+    font-size: 27px;
+}
+
+.acoes{
+    display: flex; 
+    gap: 15px;
+}
+
+.acoes button {
+    background: none;
+    border: none;
+    color: #ffad1f;
+    cursor: pointer;
+}
+
+.menu{
+    margin: 0 40px;  /* Espaço externo: 0 em cima/baixo e 40px nas laterais */
+}
+.menu ul{
+    display: flex;
+    list-style: none; /* Remove as bolinhas/marcadores da lista */
+}
+
+.menu li{
+    flex: 1;
+}
+
+.menu a {
+    display: block;
+    text-align: center;
+    padding: 18px;
+    background-color: #ffad1f;
+    color: black;
+    text-decoration: none;  /* Remove o sublinhado do link */
+    border-right: 1px solid #000000; /* Borda preta do lado direito */
+    font-weight: 600;
+    transition: 0.3s;  /* Suaviza as mudanças em 0,3 segundos */
+}
+
+.menu a:hover {
+    background-color: #ff1010;
+    color: #ffffff;
+}
+
+
+.seta-menu {
+    display: inline-block;  /* Fica na mesma linha, mas permite definir tamanho */
+    width: 10px;
+    height: 10px;
+    margin-left: 15px; /* Espaço entre o texto e a seta */
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    transform: rotate(45deg);
+
+}
+
+.menu-hamburguer {
+    display: none; /* Esconde no desktop */
+}
+
+
+
+.banner-principal {
+    position: relative;
+    margin: 15px 55px 0;
+    overflow: hidden;
+    border-radius: 0 45px 45px 0;
+}
+
+.banner-principal > img {
+    width: 100%;
+    height: auto;
+    display: block; /* Faz o elemento ocupar uma linha/bloco */
+}
+
+.banner-conteudo {
+    position: absolute;
+
+    top: 50%; /* Posiciona o elemento na metade da altura */
+    left: 7%; /* Afasta o elemento 7% da lateral esquerda */
+
+    transform: translateY(-50%);
+
+    z-index: 2; /* Coloca o elemento na frente de outros elementos */
+}
+
+.banner-conteudo h1 {
+    font-size:  48px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.banner-conteudo h1 span{
+    color: #ff7a00;
+
+}
+
+.banner-conteudo p {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 340px;
+    margin-bottom: 25px;
+}
+
+.botao-produtos {
+    display: inline-block;
+    background-color: #ff7a00;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.categorias{
+    display: flex;
+    margin: 15px 55px 0;
+    background-color: #000000;
+
+    border-radius: 45px;
+    overflow: hidden;
+
+    box-shadow: 0 0 8px rgba(255, 145, 0, 0.45); /* Cria uma sombra/brilho laranja ao redor */
+}
+
+.categoria-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border-right: 1px solid #8a4b00;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+    
+}
+
+.categoria-item:focus{
+    outline: none;
+}
+
+.categoria-item:hover {
+    transform: translateY(-8px);
+}
+.categoria-item img{
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.categoria-item:last-child {
+    border-right: none;
+}
+
+.categoria-item span {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.produtos-destaque {
+    margin: 30px 55px 0;
+}
+
+.produtos-destaque h2 {
+    color: #ffffff;          
+    font-size: 18px;         
+    font-weight: 700;        
+    text-transform: uppercase; /* Deixa tudo em maiúsculo */
+    margin-bottom: 25px;     /* Espaço abaixo do título */
+}
+
+.produtos-destaque h2 span {
+    color: #ffad1f;          
+}
+
+/* Cria 4 colunas exatamente do mesmo tamanho */
+.lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.produto-card {
+    background-color: #000000;
+
+    border: 1px solid #ff1010;
+    border-radius: 28px;
+    border-left: none; /* Remove a borda da esquerda */
+    border-top: none; /* Remove a borda de cima */
+    transition: transform 0.3s ease; /* Deixa o movimento suave */
+
+    overflow: hidden;
+    position: relative;
+
+    height: 470px;
+
+    box-shadow: 4px 5px 3px rgba(255, 16, 16, 0.75);
+}
+
+.produto-card:hover {
+    transform: translateY(-8px); /* Faz o card subir 8px */
+}
+
+
+.produto-card > img {
+    width: calc(100% - 12px);
+    height: 285px;
+    margin: 6px auto 0;
+
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
+
+    display: block;
+}
+
+
+.produto-card h3 {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin: 18px 18px 8px;
+}
+
+
+.avaliacao {
+    color: #ffad1f;
+    font-size: 17px;
+
+    margin: 0 18px 10px;
+}
+
+
+.preco {
+    color: #ffad1f;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    margin-left: 18px;
+}
+
+
+.produto-card button {
+    position: absolute;
+
+    right: 18px;
+    bottom: 18px;
+
+    border: none;
+    background: none;
+
+    font-size: 0;
+
+    cursor: pointer;
+}
+
+.produto-card button i {
+    font-size: 25px;
+     color: #ffad1f; 
+}
+.promocao {
+    margin: 25px 50px 0;
+}
+
+.promocao img{
+    width: 100%;
+    height: 150px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+}
+
+.beneficios {
+    display: flex;
+    justify-content: space-between;  /* Distribui eles pelo espaço */
+    align-items: center;
+
+    margin:  10px 50px 30px;
+    padding: 20px 50px;
+    
+    background-color: #000;
+}
+
+.beneficio-texto {
+    display: flex;
+    flex-direction: column; /* Coloca os textos um embaixo do outro */
+    text-transform: uppercase; 
+}
+
+.beneficio-item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.beneficio-item img{
+    width: 90px;         /* Largura do ícone */
+    height: 90px;
+    object-fit: contain;
+
+}
+
+.beneficio-item h3{
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0;
+}
+
+.beneficio-item p {
+    color: #ffad1f;
+    font-size: 13px;
+    margin: 4px 0 0;
+}
+
+.beneficios h3 span{
+ color: #ffad1f;  
+}
+
+
+
+/* =========================
+   SOBRE NÓS
+========================= */
+
+.sobre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: auto;
+    margin: 50px;
+    gap: 40px;
+}
+
+.sobre-texto {
+    width: 60%;
+    box-sizing: border-box;
+
+    padding: 25px;
+
+    border: 1px solid #ff1010;
+    border-radius: 45px;
+    box-shadow: 4px 5px 3px rgba(255, 16, 16, 0.75);
+}
+
+.sobre-imagem {
+    width: 30%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre-imagem img {
+    width: 220px;
+    height: auto;
+    display: block;
+}
+
+
+
+
+.newsletter {
+    display: flex;                  /* Imagem + texto + formulário lado a lado */
+    align-items: center;            /* Centraliza tudo verticalmente */
+    justify-content: space-between; /* Distribui o espaço entre os blocos */
+
+    margin: 40px 50px;
+    padding: 20px 35px;
+
+    background-color: #2b2b2b;
+    border-radius: 55px;            /* Deixa a faixa bem arredondada */
+}
+
+.newsletter-imagem {
+    flex-shrink: 0;                 /* Impede a imagem de encolher */
+}
+
+.newsletter-imagem img {
+    width: 215px;                   /* Deixa a arte maior */
+    height: auto;
+    display: block;
+}
+
+.newsletter-conteudo {
+    flex: 1;
+
+    display: flex;                  /* Texto + formulário lado a lado */
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+    margin-left: 25px;
+}
+
+.newsletter-texto {
+    max-width: 430px;               /* Controla a largura do texto */
+}
+
+.newsletter-texto h2 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.newsletter-texto p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+
+    width: 430px;
+    height: 58px;
+
+    background-color: #ffffff;
+    border-radius: 40px;
+
+    overflow: hidden;
+}
+
+.newsletter-form input {
+    flex: 1;
+
+    height: 100%;
+    padding: 0 28px;
+
+    border: none;
+    outline: none;
+
+    font-size: 16px;
+}
+
+.newsletter-form button {
+    height: 100%;
+    padding: 0 28px;
+
+    border: none;
+    border-radius: 40px;
+
+    background-color: #ff1010;
+    color: #ffffff;
+
+    font-size: 16px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+    background-color: #d90000;
+}
+
+.newsletter-form label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
+.rodape {
+    background-color: #000000;
+
+    padding: 45px 50px 20px;
+}
+
+.rodape-conteudo {
+    display: grid;
+
+    grid-template-columns: 1.1fr 1.3fr 1.2fr 1.2fr;
+
+    gap: 40px;
+
+    align-items: start;
+}
+
+.rodape-marca {
+    text-align: center;
+}
+
+.rodape-marca img {
+    width: 110px;
+    height: auto;
+
+    margin-bottom: 15px;
+}
+
+.rodape-marca p {
+    color: #ffffff;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.redes-sociais {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+}
+
+.redes-sociais a {
+    color: #ffad1f;
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rodape-coluna,
+.rodape-pagamento {
+    border-left: 1px solid #ffffff;
+
+    padding-left: 35px;
+}
+
+.rodape-coluna h3,
+.rodape-pagamento h3 {
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.rodape-coluna ul {
+    list-style: none;
+}
+
+.rodape-coluna li {
+    margin-bottom: 10px;
+}
+
+.rodape-coluna a {
+    color: #e5f000;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.rodape-coluna a:hover {
+    color: #ffad1f;
+}
+
+.rodape-final {
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+.rodape-final p {
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+/* =========================
+   APRENDENDO A RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+    .menu-hamburguer {
+    display: block;          /* Mostra no celular */
+    margin-left: auto;       /* Joga o botão para a direita */
+
+    background: none;        /* Remove fundo padrão */
+    border: none;            /* Remove borda */
+
+    color: #ffad1f;          /* Cor laranja */
+    font-size: 32px;         /* Tamanho do ☰ */
+
+    cursor: pointer;
+}
+
+.menu ul {
+    display: none;           /* Menu começa fechado */
+    flex-direction: column;  /* Quando abrir, fica vertical */
+}
+
+/* Essa classe será colocada pelo JavaScript */
+.menu ul.ativo {
+    display: flex;
+}
+
+}
+
+@media(max-width: 1024px) {
+    .topo {
+        padding: 15px 25px;
+    }
+
+    .topo img{
+        width: 110px;
+    }
+
+    .barra-pesquisa {
+        height: 60px;
+    }
+
+    .barra-pesquisa button{
+        width: 110px;
+    }
+
+    .menu{
+        margin: 0 25px;
+    
+    }
+
+    .banner-principal {
+        margin:15px 25px 0;
+    }
+
+    .banner-conteudo h1{
+        font-size: 36px;
+    }
+
+    .categorias {
+         margin: 15px 25px 0;
+    }
+
+    .categoria-item img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .produtos-destaque {
+        margin: 30px 25px 0;
+    }
+
+    .lista-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .promocao {
+        margin: 25px 25px 0;
+    }
+
+    .beneficios {
+        flex-wrap: wrap;
+        gap: 25px;
+
+        margin: 10px 25px 30px;
+    }
+
+    .beneficio-item {
+        width: calc(50% - 15px);
+    }
+
+    .sobre {
+        margin: 40px 25px;
+    }
+
+    .newsletter {
+        margin: 40px 25px;
+    }
+
+    .newsletter-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .rodape {
+        padding: 40px 25px 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .topo {
+        flex-direction: column; /* Coloca logo, pesquisa e ações um abaixo do outro */
+        align-items: center;    /* Centraliza tudo */
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .topo img {
+        width: 100px; /* Logo maior no celular */
+    }
+
+    .barra-pesquisa {
+        width: 100%;  /* Pesquisa ocupa a largura disponível */
+        height: 45px;
+        flex: none;
+    }
+
+    .barra-pesquisa input {
+        width: 100%;
+        padding: 0 100px 0 15px;
+        font-size: 14px;
+    }
+
+    .barra-pesquisa button {
+        width: 90px;
+    }
+
+    .acoes {
+        justify-content: center;
+    }
+
+    .menu {
+        margin: 0 15px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu a {
+        border-right: none;
+        border-bottom: 1px solid #000;
+    }
+
+    .banner-principal {
+        margin: 15px 15px 0;
+        border-radius: 25px;
+    }
+
+    .banner-conteudo {
+        left: 5%;
+    }
+
+    .banner-conteudo h1 {
+        font-size: 25px;
+    }
+
+    .banner-conteudo p {
+        font-size: 14px;
+        max-width: 220px;
+    }
+
+    .botao-produtos {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .categorias {
+        margin: 15px;
+        flex-wrap: wrap;
+        border-radius: 25px;
+    }
+
+    .categoria-item {
+        flex: none;
+        width: 50%;
+    }
+
+    .produtos-destaque {
+        margin: 30px 15px 0;
+    }
+
+    .lista-produtos {
+        grid-template-columns: 1fr;
+    }
+
+    .promocao {
+        margin: 20px 15px 0;
+    }
+
+    .promocao img {
+        height: auto;
+    }
+
+    .beneficios {
+        flex-direction: column;
+        align-items: flex-start;
+
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    .beneficio-item {
+        width: 100%;
+    }
+
+    .sobre {
+        flex-direction: column;
+
+        margin: 30px 15px;
+    }
+
+    .sobre-texto {
+        width: 100%;
+    }
+
+    .sobre-imagem {
+        width: 100%;
+    }
+
+    .newsletter {
+        flex-direction: column;
+
+        margin: 30px 15px;
+        border-radius: 30px;
+    }
+
+    .newsletter-conteudo {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .newsletter-texto {
+        text-align: center;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .newsletter-form input {
+    flex: 1;       /* Input ocupa o espaço que sobrar */
+    min-width: 0;  /* Permite que ele diminua no celular */
+}
+
+.newsletter-form button {
+    flex-shrink: 0;   /* Impede o botão de ser espremido */
+    min-width: 110px; /* Garante espaço para "CADASTRAR" */
+    padding: 0 18px;
+}
+
+    .rodape {
+        padding: 35px 15px 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .rodape-coluna,
+    .rodape-pagamento {
+        border-left: none;
+        padding-left: 0;
+
+        text-align: center;
+    }
+}
